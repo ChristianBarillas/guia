@@ -2,32 +2,35 @@
 
 // se viola el principio de segregacion de interfaces
 
-interface exportDocument{
- public function exportarPDF();
- public function exportarJSON();
- public function exportarText();
+
+
+    interface exportarPDF{
+        public function PDF();
+    
+    }
+    interface exportarJSON{
+        public function JSON();
+    
+    }
+    interface exportarText{
+        public function Text();
+    
     }
     
-    class BoletaPago implements exportDocument{
- public function exportarPDF()
- {
- return "Su boleta de pago esta en PDF";
- }
+    class BoletaPago implements exportarPDF{
+        public function PDF(){
+            return " Boleta de pago en formato PDF";
+        }
     
-public function exportarJSON()
-   {
- throw new Exception("no se puede exportar en JSON");
- }
-    
- public function exportarText()
- {
-   throw new Exception("no se puede exportar en texto");
-}
     }
-
-
-
-
+    
+    class Mensaje implements exportarText{
+        public function Text(){
+            return "Mostrar mensaje tipo text";
+        }
+    }
+    
+    
 
 
 
